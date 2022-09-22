@@ -33,11 +33,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Setup dotnet
-      - uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x'
       - name: Download docfx
-      - uses: robinraju/release-downloader@v1.3
+        uses: robinraju/release-downloader@v1.3
         with:
           repository: "user/repo"
           tag: "v2.59.4"
