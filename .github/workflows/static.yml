@@ -58,7 +58,13 @@ jobs:
           mv ./ServiceStack/* ../ServiceStack
       - name: Build docs
         run: |
-          find ../ServiceStack -name '*.csproj' -exec echo {} \;
           chmod +x ./generate.sh
           ./generate.sh
-      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload output
+          path: './build'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
