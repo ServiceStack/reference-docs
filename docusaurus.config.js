@@ -39,10 +39,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'ServiceStack.Blazor',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'ServiceStack.Blazor',
+          src: 'img/servicestack.svg',
         },
         items: [
           {
