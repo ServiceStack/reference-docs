@@ -41,7 +41,7 @@ jobs:
       - name: Setup docfx
         run: |
           unzip ./docfx.zip -d ./docfx
-          ./chmod +x ./docfx/docfx.exe
+          chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           
       - name: Build docs
