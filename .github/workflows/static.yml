@@ -55,10 +55,9 @@ jobs:
         with:
           repository: ServiceStack/ServiceStack
           path: ServiceStack
-      - name: Move ServiceStack
+      - name: Change docfx.json path so github links work
         run: |
-          mkdir -p ../ServiceStack
-          mv ./ServiceStack/* ../ServiceStack
+          sed -i 's|../ServiceStack/ServiceStack.Blazor/src/|./ServiceStack/ServiceStack.Blazor/src/|g' docfx.json
       - name: Build docs
         run: |
           chmod +x ./generate.sh
