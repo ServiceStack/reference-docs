@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": ["*/*.csproj"],
+          "files": ["ServiceStack.Blazor/Components/*/*.cs"],
           "src": "../ServiceStack/ServiceStack.Blazor/src/",
           "exclude": [
             "**/bin/**",
