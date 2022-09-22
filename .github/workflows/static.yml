@@ -47,7 +47,11 @@ jobs:
           chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           echo "./docfx" >> $GITHUB_PATH
-          
+      - name: Checkout ServiceStack
+        uses: actions/checkout@v3
+        with:
+          name: ServiceStack
+          path: Servicestack
       - name: Build docs
         run: |
           chmod +x ./generate.sh
