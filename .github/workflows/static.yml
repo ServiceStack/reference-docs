@@ -37,15 +37,10 @@ jobs:
         with:
           dotnet-version: '6.x'
       - name: Download docfx
-        uses: robinraju/release-downloader@v1.3
-        with:
-          repository: "dotnet/docfx"
-          tag: "v2.59.4"
-          zipBall: true
-          out-file-path: "docfx"
+        run: wget https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip
       - name: Setup docfx
         run: |
-          unzip ./docfx/*.zip -d ./docfx
+          unzip ./docfx.zip -d ./docfx
           ./chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           
