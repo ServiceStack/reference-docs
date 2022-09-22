@@ -45,7 +45,7 @@ jobs:
           out-file-path: "docfx"
       - name: Setup docfx
         run: |
-          unzip ./docfxunzip1/*.zip -d ./docfx
+          unzip ./docfx/*.zip -d ./docfx
           ./chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           
