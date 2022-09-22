@@ -39,7 +39,7 @@ jobs:
       - name: Download docfx
         uses: robinraju/release-downloader@v1.3
         with:
-          repository: "user/repo"
+          repository: "dotnet/docfx"
           tag: "v2.59.4"
           zipBall: true
           out-file-path: "docfx"
