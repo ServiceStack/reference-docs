@@ -4,7 +4,7 @@
       "src": [
         {
           "files": ["*/*.csproj"],
-          "src": "./ServiceStack/Servicestack.Blazor/src/",
+          "src": "../ServiceStack/ServiceStack.Blazor/src/",
           "exclude": [
             "**/bin/**",
             "**/obj/**"
