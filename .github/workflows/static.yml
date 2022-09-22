@@ -54,6 +54,7 @@ jobs:
           path: ServiceStack
       - name: Move ServiceStack
         run: |
+          mkdir -p ../ServiceStack
           mv ./ServiceStack/* ../ServiceStack
       - name: Build docs
         run: |
