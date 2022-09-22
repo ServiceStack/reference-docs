@@ -54,7 +54,7 @@ jobs:
           path: Servicestack
       - name: Build docs
         run: |
-          echo "$PATH"
+          find ./ServiceStack -name '*.csproj' -exec process {} \;
           chmod +x ./generate.sh
           ./generate.sh
       
