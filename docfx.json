@@ -15,5 +15,16 @@
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
-  ]
+  ],
+  "build": {
+    "resource": [
+      {
+        "files" : [
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.gif"
+        ]
+      }
+    ]
+  }
 }
