@@ -46,7 +46,7 @@ jobs:
           unzip ./docfx.zip -d ./docfx
           chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
-          echo "./docfx" >> $GITHUB_PATH
+          echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
       - name: Checkout ServiceStack
         uses: actions/checkout@v3
         with:
@@ -54,6 +54,7 @@ jobs:
           path: Servicestack
       - name: Build docs
         run: |
+          echo "$PATH"
           chmod +x ./generate.sh
           ./generate.sh
       
