@@ -1,4 +1,8 @@
-docfx metadata
+if(Test-Path -Path './docfx') {
+    ./docfx/docfx.exe metadata
+} else {
+    docfx metadata
+}
 Get-ChildItem './api/*.yml' | ForEach {
     (Get-Content $_) | ForEach {$_ -Replace 'git@github.com:ServiceStack/ServiceStack.git', 'https://github.com/ServiceStack/ServiceStack'} | Set-Content $_
 }
