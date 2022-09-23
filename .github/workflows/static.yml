@@ -39,9 +39,6 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x'
-      - name: Install dfmg
-        run: |
-          dotnet tool install -g DocFxMarkdownGen
       - name: Download docfx
         run: wget https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip
       - name: Setup docfx
@@ -50,6 +47,15 @@ jobs:
           chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
+      - name: Checkout DocFxMarkdownGen
+        uses: actions/checkout@v3
+        with:
+          repository: Layoric/DocFxMarkdownGen
+          path: DocFxMarkdownGen
+      - name: Setup DocFxMarkdownGen
+        run: |
+          cd DocFxMarkdownGen && dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained false -o ../dfmg
+          echo "${GITHUB_WORKSPACE}/dfmg" >> $GITHUB_PATH
       - name: Checkout ServiceStack
         uses: actions/checkout@v3
         with:
