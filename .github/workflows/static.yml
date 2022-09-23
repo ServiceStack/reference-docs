@@ -61,7 +61,7 @@ jobs:
         with:
           repository: ServiceStack/ServiceStack
           path: ServiceStack
-      - name: Change docfx.json path so github links work
+      - name: Change docfx.json path for CI
         run: |
           sed -i 's|../ServiceStack/ServiceStack|./ServiceStack/ServiceStack|g' docfx.json
       - name: Build docs
