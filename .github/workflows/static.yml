@@ -39,14 +39,12 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x'
-      - name: Download docfx
-        run: wget https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip
-      - name: Setup docfx
-        run: |
-          unzip ./docfx.zip -d ./docfx
-          chmod +x ./docfx/docfx.exe
-          ./docfx/docfx.exe --version
-          echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
+
+      - uses: nikeee/docfx-action@v1.0.0
+        name: Build Documentation
+        with:
+          args: metadata
+
       - name: Checkout DocFxMarkdownGen
         uses: actions/checkout@v3
         with:

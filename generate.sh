@@ -1,7 +1,12 @@
 #!/bin/sh
 
-docfx.exe metadata
+# Only run docfx if api directory doesn't yet exist.
+if [ ! -d ./api ]; then
+  docfx.exe metadata
+fi
+# Fix repo values to link correctly to GitHub.
 find ./api/*.yml -type f -exec sed -i "s|git@github.com:ServiceStack/ServiceStack.git|https://github.com/ServiceStack/ServiceStack|g" {} \;
+# Pull down custom DocFxMarkdownGen to generate MarkDown
 if [ ! -d ./DocFxMarkdownGen ]; then
   git clone git@github.com:Layoric/DocFxMarkdownGen.git
 fi
