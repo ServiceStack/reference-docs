@@ -63,7 +63,7 @@ jobs:
           path: ServiceStack
       - name: Change docfx.json path so github links work
         run: |
-          sed -i 's|../ServiceStack/ServiceStack.Blazor/src/|./ServiceStack/ServiceStack.Blazor/src/|g' docfx.json
+          sed -i 's|../ServiceStack/ServiceStack|./ServiceStack/ServiceStack|g' docfx.json
       - name: Build docs
         run: |
           chmod +x ./generate.sh
