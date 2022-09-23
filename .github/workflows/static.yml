@@ -39,16 +39,13 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x'
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        with:
-          platform: x64
       - name: Download docfx
-        run: wget https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip
+        run: |
+          client = new-object System.Net.WebClient
+          $client.DownloadFile("https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip")
       - name: Setup docfx
         run: |
-          unzip ./docfx.zip -d ./docfx
-          chmod +x ./docfx/docfx.exe
+          Expand-Archive ./docfx.zip -d ./docfx
           ./docfx/docfx.exe --version
           echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
       - name: Checkout DocFxMarkdownGen
@@ -63,11 +60,10 @@ jobs:
           path: ServiceStack
       - name: Change docfx.json path for CI
         run: |
-          sed -i 's|../ServiceStack/ServiceStack|./ServiceStack/ServiceStack|g' docfx.json
+          (Get-Content -path docfx.json -Raw) -replace '../ServiceStack/ServiceStack','./ServiceStack/ServiceStack' | Set-Content -Path docfx.json
       - name: Build docs
         run: |
-          chmod +x ./generate.sh
-          ./generate.sh
+          ./generate.ps1
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
