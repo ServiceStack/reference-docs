@@ -16,7 +16,8 @@
           "exclude": [
             "**/bin/**",
             "**/obj/**",
-            "**/ServiceStack.OrmLite.T4**"
+            "**/ServiceStack.OrmLite.T4**",
+            "**/ServiceStack.OrmLite.SqlServer.Converters**"
           ]
         }
       ],
