@@ -12,9 +12,8 @@ if (Test-Path -Path './DocFxMarkdownGen') {
     git clone git@github.com:Layoric/DocFxMarkdownGen.git
 }
 cd DocFxMarkdownGen
-dotnet publish -r win-x86 -p:PublishSingleFile=true --self-contained false -o ../out
+dotnet publish -o ../out
 cd ..
-Copy-Item "./out/DocFxMarkdownGen.exe" -Destination "./dfmg.exe"
-./dfmg.exe
+./out/DocFxMarkdownGen.exe
 yarn install
 npm run build
