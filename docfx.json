@@ -9,6 +9,14 @@
             "**/bin/**",
             "**/obj/**"
           ]
+        },
+        {
+          "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack.OrmLite/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
         }
       ],
       "dest": "api",
