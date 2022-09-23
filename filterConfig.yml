@@ -5,3 +5,12 @@ apiRules:
     - exclude:
           uidRegex: ^System\.Threading
           type: Type
+    - exclude:
+        hasAttribute:
+          uid: System.Runtime.InteropServices.DllImportAttribute
+    - exclude:
+          uidRegex: ^ServiceStack\.OrmLite\.Firebird
+          type: Type
+    - exclude:
+          uidRegex: ^ServiceStack\.OrmLite\.Oracle
+          type: Type
