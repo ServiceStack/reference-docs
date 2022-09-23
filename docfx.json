@@ -15,7 +15,8 @@
           "src": "../ServiceStack/ServiceStack.OrmLite/src/",
           "exclude": [
             "**/bin/**",
-            "**/obj/**"
+            "**/obj/**",
+            "**/ServiceStack.OrmLite.T4**"
           ]
         }
       ],

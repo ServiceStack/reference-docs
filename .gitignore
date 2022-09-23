@@ -24,3 +24,7 @@ docs/api
 
 .vercel
 .idea
+DocFxMarkdownGen/
+dfmg/
+/dfmg.exe
+/out/
