@@ -39,26 +39,31 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x'
-
+      - name: Download docfx
+        run: wget https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip
+      - name: Setup docfx
+        run: |
+          unzip ./docfx.zip -d ./docfx
+          chmod +x ./docfx/docfx.exe
+          ./docfx/docfx.exe --version
+          echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
       - name: Checkout DocFxMarkdownGen
         uses: actions/checkout@v3
         with:
           repository: Layoric/DocFxMarkdownGen
           path: DocFxMarkdownGen
+      - name: Setup DocFxMarkdownGen
+        run: |
+          cd DocFxMarkdownGen && dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained false -o ../dfmg
+          echo "${GITHUB_WORKSPACE}/dfmg" >> $GITHUB_PATH
       - name: Checkout ServiceStack
         uses: actions/checkout@v3
         with:
           repository: ServiceStack/ServiceStack
           path: ServiceStack
-
       - name: Change docfx.json path so github links work
         run: |
           sed -i 's|../ServiceStack/ServiceStack|./ServiceStack/ServiceStack|g' docfx.json
-
-      - uses: nikeee/docfx-action@v1.0.0
-        name: Build Documentation
-        with:
-          args: metadata
       - name: Build docs
         run: |
           chmod +x ./generate.sh

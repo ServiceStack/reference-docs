@@ -12,12 +12,10 @@
         },
         {
           "files": ["*/*.csproj"],
-          "src": "../ServiceStack/ServiceStack.OrmLite/src/",
+          "src": "../ServiceStack/ServiceStack.Redis/src/",
           "exclude": [
             "**/bin/**",
-            "**/obj/**",
-            "**/ServiceStack.OrmLite.T4**",
-            "**/ServiceStack.OrmLite.SqlServer.Converters**"
+            "**/obj/**"
           ]
         }
       ],
