@@ -47,6 +47,11 @@ jobs:
           chmod +x ./docfx/docfx.exe
           ./docfx/docfx.exe --version
           echo "${GITHUB_WORKSPACE}/docfx" >> $GITHUB_PATH
+      - name: Checkout DocFxMarkdownGen
+        uses: actions/checkout@v3
+        with:
+          repository: Layoric/DocFxMarkdownGen
+          path: DocFxMarkdownGen
       - name: Checkout ServiceStack
         uses: actions/checkout@v3
         with:
