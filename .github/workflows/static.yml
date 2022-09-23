@@ -42,7 +42,7 @@ jobs:
       - name: Download docfx
         run: |
           $client = new-object System.Net.WebClient
-          $client.DownloadFile("https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip")
+          $client.DownloadFile("https://github.com/dotnet/docfx/releases/download/v2.59.4/docfx.zip","./docfx.zip")
       - name: Setup docfx
         run: |
           Expand-Archive ./docfx.zip -d ./docfx
