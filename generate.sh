@@ -19,7 +19,6 @@ echo ${machine}
 cd DocFxMarkdownGen
 dotnet publish -r ${machine} -p:PublishSingleFile=true --self-contained false -o ../out
 cd ..
-chmod +x ./out/DocFxMarkdownGen
 cp ./out/DocFxMarkdownGen ./dfmg
 chmod +x ./dfmg
 ./dfmg
