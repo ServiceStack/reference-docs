@@ -9,9 +9,18 @@
             "**/bin/**",
             "**/obj/**"
           ]
+        },
+        {
+          "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack.OrmLite/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
         }
       ],
       "dest": "api",
+      "filter": "filterConfig.yml",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
