@@ -15,8 +15,9 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
-  --doc-sidebar-width: 400px !important;
-  --ifm-h1-font-size: 2.9rem;
+  --doc-sidebar-width: 380px !important;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-menu-link-padding-horizontal: .5rem;
 }
 
 .navbar__title {
@@ -46,4 +47,7 @@ h6, h6 strong {
 }
 h6 strong {
   color: rgb(107 114 128);
+}
+.menu, .navbar-sidebar {
+  font-size: 15px;
 }
