@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdfmg_template=self.webpackChunkdfmg_template||[]).push([[2663],{58137:function(e){e.exports=JSON.parse('{"name":"docusaurus-theme-search-typesense","id":"default"}')}}]);
