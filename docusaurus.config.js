@@ -72,7 +72,7 @@ const config = {
         additionalLanguages: ["csharp"],
       },
       typesense: {
-        typesenseCollectionName: 'docusaurus-2', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
+        typesenseCollectionName: 'typesense_docs', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
 
         typesenseServerConfig: {
           nodes: [
