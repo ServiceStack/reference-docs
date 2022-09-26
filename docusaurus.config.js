@@ -34,14 +34,14 @@ const config = {
       }),
     ],
   ],
-
+  themes: ['docusaurus-theme-search-typesense'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'ServiceStack.Blazor',
+        title: 'ServiceStack Reference',
         logo: {
-          alt: 'ServiceStack.Blazor',
+          alt: 'ServiceStack Reference',
           src: 'img/servicestack.svg',
         },
         items: [
@@ -71,6 +71,26 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ["csharp"],
       },
+      typesense: {
+        typesenseCollectionName: 'docusaurus-2', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
+
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: 'search.reference.servicestack.net',
+              port: 443,
+              protocol: 'https',
+            }
+          ],
+          apiKey: 'xyz',
+        },
+
+        // Optional: Typesense search parameters: https://typesense.org/docs/0.21.0/api/search.md#search-parameters
+        typesenseSearchParameters: {},
+
+        // Optional
+        contextualSearch: true,
+      }
     }),
 };
 
