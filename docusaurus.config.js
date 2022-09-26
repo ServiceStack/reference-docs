@@ -6,15 +6,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'dfmg-template',
-  tagline: 'DocFxMarkdownGen Docusaurus template',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'servicestack-reference',
+  tagline: 'ServiceStack Reference Documentation',
+  url: 'https://reference.servicestack.net',
   baseUrl: '/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'Jan0660', // Usually your GitHub org/user name.
-  projectName: 'dfmg-template', // Usually your repo name.
+  organizationName: 'ServiceStack', // Usually your GitHub org/user name.
+  projectName: 'reference-docs', // Usually your repo name.
 
   presets: [
     [
@@ -60,7 +60,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/Jan0660/dfmg-template',
+                href: 'https://github.com/ServiceStack/ServiceStack',
               },
             ],
           },
@@ -89,7 +89,7 @@ const config = {
         typesenseSearchParameters: {},
 
         // Optional
-        contextualSearch: true,
+        contextualSearch: false,
       }
     }),
 };
