@@ -102,12 +102,12 @@ jobs:
 
       - name: Repository name fix and env values setup
         run: |
-          echo "image_repository_name=docs-search" >> $GITHUB_ENV
+          echo "image_repository_name=reference-search" >> $GITHUB_ENV
           echo "domain=search.reference.servicestack.net" >> $GITHUB_ENV
           echo "letsencrypt_email=${{ secrets.LETSENCRYPT_EMAIL }}" >> $GITHUB_ENV
-          echo "app_name=servicestack-docs-search" >> $GITHUB_ENV
+          echo "app_name=servicestack-reference-search" >> $GITHUB_ENV
           echo "cluster_name=default" >> $GITHUB_ENV
-          echo "image_url=${{ steps.login_ecr.outputs.registry }}/docs-search:latest" >> $GITHUB_ENV
+          echo "image_url=${{ steps.login_ecr.outputs.registry }}/reference-search:latest" >> $GITHUB_ENV
           echo "aws_region=${{ secrets.AWS_REGION }}" >> $GITHUB_ENV
           echo "typesense_api_key=${{ secrets.TYPESENSE_API_KEY }}" >> $GITHUB_ENV
 
