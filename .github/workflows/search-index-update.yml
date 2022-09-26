@@ -60,7 +60,7 @@ jobs:
           curl 'http://172.17.0.2:8108/keys' -X POST -H "X-TYPESENSE-API-KEY: ${TYPESENSE_API_KEY}" -H 'Content-Type: application/json' -d '{"value": "N4N8bF0XwyvzwCGwm3CKB0QcnwyWtygo","description": "Search only","actions": ["documents:search"],"collections":["*"]}'
 
       - name: repository name fix
-        run: echo "image_repository_name=docs-search" >> $GITHUB_ENV
+        run: echo "image_repository_name=reference-search" >> $GITHUB_ENV
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
