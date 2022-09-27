@@ -13,7 +13,7 @@
   ],
   "selectors": {
     "default": {
-      "lvl0": ".menu__link menu__link--active",
+      "lvl0": ".theme-doc-sidebar-item-link-level-2 .menu__link--active",
       "lvl1": "header h1",
       "lvl2": "article h3",
       "lvl3": "article h5, article td:first-child",
