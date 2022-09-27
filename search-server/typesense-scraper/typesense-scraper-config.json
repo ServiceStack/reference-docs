@@ -6,6 +6,11 @@
       "url": "https://reference.servicestack.net/"
     }
   ],
+  "stop_urls": [
+    "https://reference.servicestack.net/api/ServiceStack.Blazor/",
+    "https://reference.servicestack.net/api/ServiceStack.Blazor.Components/",
+    "https://reference.servicestack.net/api/ServiceStack.Blazor.Components.Tailwind/"
+  ],
   "selectors": {
     "default": {
       "lvl0": ".menu__link menu__link--active",

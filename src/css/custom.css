@@ -24,6 +24,14 @@
   font-size: 1.5em;
 }
 
+.symbol-property {
+  color: gray;
+}
+
+.symbol-method {
+  color:darkviolet;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -33,6 +41,43 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] h1 {
+  color: white;
+}
+
+html[data-theme='dark'] h2 {
+  color: white;
+}
+html[data-theme='dark'] h3 {
+  color: white;
+}
+html[data-theme='dark'] h4 {
+  color: white;
+}
+html[data-theme='dark'] h5 {
+  color: white;
+}
+html[data-theme='dark'] h6 {
+  color: white;
+}
+
+html[data-theme='dark'] p {
+  color: white;
+}
+
+
+html[data-theme='dark'] th {
+  color: white;
+}
+
+html[data-theme='dark'] td {
+  color: white;
+}
+
+html[data-theme='dark'] ul>li {
+  color: white;
 }
 
 .markdown h1:first-child {
