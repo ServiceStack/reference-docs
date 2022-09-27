@@ -1,2 +1,3 @@
 outputPath: ./docs/api
 yamlPath: ./api
+useIconify: true

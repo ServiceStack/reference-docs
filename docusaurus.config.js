@@ -15,7 +15,9 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'ServiceStack', // Usually your GitHub org/user name.
   projectName: 'reference-docs', // Usually your repo name.
-
+  scripts: [
+      "https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"
+      ],
   presets: [
     [
       'classic',
