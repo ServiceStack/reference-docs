@@ -32,11 +32,23 @@
   color:darkviolet;
 }
 
+.symbol-class {
+  color: darkgoldenrod;
+}
+
+.github-icon {
+  color: black;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .github-icon {
+  color: white;
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
