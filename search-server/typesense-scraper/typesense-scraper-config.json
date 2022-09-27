@@ -3,12 +3,23 @@
   "allowed_domains": ["172.17.0.2","reference.servicestack.net"],
   "start_urls": [
     {
-      "url": "https://reference.servicestack.net/"
+      "url": "https://reference.servicestack.net/api/ServiceStack.Blazor/"
+    },
+    {
+      "url": "https://reference.servicestack.net/api/ServiceStack.Blazor.Components/"
+    },
+    {
+      "url": "https://reference.servicestack.net/api/ServiceStack.Blazor.Components.Tailwind/"
     }
   ],
   "selectors": {
     "default": {
-      "lvl0": ".theme-doc-sidebar-item-link-level-2 .menu__link--active",
+      "lvl0": {
+        "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+        "type": "xpath",
+        "global": true,
+        "default_value": "Documentation"
+      },
       "lvl1": "article h1",
       "lvl2": "article h3",
       "lvl3": "article h5, article td:first-child",
@@ -16,5 +27,22 @@
     }
   },
   "scrape_start_urls": false,
-  "strip_chars": " .,;:#"
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ]
+  }
 }
