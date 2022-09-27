@@ -4,7 +4,39 @@
       "src": [
         {
           "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        },
+        {
+          "files": ["*/*.csproj"],
           "src": "../ServiceStack/ServiceStack.Blazor/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        },
+        {
+          "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack.OrmLite/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        },
+        {
+          "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack.Redis/src/",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        },
+        {
+          "files": ["*/*.csproj"],
+          "src": "../ServiceStack/ServiceStack.Text/src/",
           "exclude": [
             "**/bin/**",
             "**/obj/**"
