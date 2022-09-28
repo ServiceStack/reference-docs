@@ -16,4 +16,5 @@ dotnet publish -o ../out
 cd ..
 ./out/DocFxMarkdownGen.exe
 yarn install
+$env:NODE_OPTIONS="--max-old-space-size=8192"
 npm run build
