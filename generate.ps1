@@ -6,12 +6,7 @@ if(Test-Path -Path './docfx') {
 Get-ChildItem './api/*.yml' | ForEach {
     (Get-Content $_) | ForEach {$_ -Replace 'git@github.com:ServiceStack/ServiceStack.git', 'https://github.com/ServiceStack/ServiceStack'} | Set-Content $_
 }
-if (Test-Path -Path './DocFxMarkdownGen') {
-    echo "Already exists, skipping DocFXMarkdownGen clone"
-} else {
-    git clone git@github.com:Layoric/DocFxMarkdownGen.git
-}
-cd DocFxMarkdownGen
+cd markdowngen
 dotnet publish -o ../out
 cd ..
 ./out/DocFxMarkdownGen.exe
