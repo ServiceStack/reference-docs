@@ -18,6 +18,28 @@
   --doc-sidebar-width: 380px !important;
   --ifm-h1-font-size: 2.5rem;
   --ifm-menu-link-padding-horizontal: .5rem;
+  --ifm-breadcrumb-item-background-active: none;
+}
+.breadcrumbHomeIcon_node_modules-\@docusaurus-theme-classic-lib-theme-DocBreadcrumbs-styles-module {
+  color: rgb(156 163 175);
+  height: 1.6rem !important;
+  width: 1.6rem !important;
+}
+.breadcrumbs__item:not(:last-child):after {
+  color: rgb(156 163 175);
+  height: .8em;
+  width: .8em;
+  vertical-align: text-bottom;
+}
+.breadcrumbs__item {
+  vertical-align: middle;
+}
+.breadcrumbs__item span {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.breadcrumbs__item--active .breadcrumbs__link {
+  color: rgb(55 65 81);
 }
 
 .navbar__title {
