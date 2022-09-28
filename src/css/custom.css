@@ -19,16 +19,18 @@
   --ifm-h1-font-size: 2.5rem;
   --ifm-menu-link-padding-horizontal: .5rem;
   --ifm-breadcrumb-item-background-active: none;
+  --ifm-breadcrumb-separator:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 256 256"><polygon fill="%239CA3AF" points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128"/></svg>');
 }
-.breadcrumbHomeIcon_node_modules-\@docusaurus-theme-classic-lib-theme-DocBreadcrumbs-styles-module {
+.breadcrumbs__link svg {
   color: rgb(156 163 175);
-  height: 1.6rem !important;
-  width: 1.6rem !important;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 .breadcrumbs__item:not(:last-child):after {
-  color: rgb(156 163 175);
+  color: rgb(156 163 175) !important;
   height: .8em;
   width: .8em;
+  opacity: 1;
   vertical-align: text-bottom;
 }
 .breadcrumbs__item {
