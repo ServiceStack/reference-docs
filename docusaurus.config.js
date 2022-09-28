@@ -93,20 +93,7 @@ const config = {
         // Optional
         contextualSearch: false,
       }
-    }),
-  plugins: [
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            to: '/api',
-            from: '/'
-          }
-        ]
-      },
-    ],
-  ]
+    })
 };
 
 module.exports = config;
