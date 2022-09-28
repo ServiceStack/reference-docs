@@ -55,18 +55,150 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
-            title: 'More',
+            title: 'Features',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/ServiceStack/ServiceStack',
+                label: 'Blazor WASM',
+                to: 'https://servicestack.net/blazor',
               },
+              {
+                label: 'AutoQuery',
+                to: 'https://servicestack.net/autoquery',
+              },
+              {
+                label: 'ServiceStack Reference',
+                to: 'https://servicestack.net/service-reference',
+              },
+              {
+                label: 'Litestream',
+                to: 'https://servicestack.net/litestream',
+              },
+              {
+                label: 'OrmLite',
+                to: 'https://servicestack.net/ormlite',
+              },
+              {
+                label: 'Redis',
+                to: 'https://servicestack.net/redis',
+              },
+              {
+                label: 'Locode',
+                to: 'https://www.locode.dev/',
+              },
+              {
+                label: 'Jamstack',
+                to: 'Jamstack',
+              },
+
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'Framework Docs',
+                href: 'https://docs.servicestack.net',
+              },
+              {
+                label: 'Customer Forums',
+                to: 'https://forums.servicestack.net',
+              },
+              {
+                label: 'ServiceStack.Redis',
+                to: 'https://docs.servicestack.net/redis',
+              },
+              {
+                label: 'ServiceStack.OrmLite',
+                to: 'https://docs.servicestack.net/ormlite',
+              },
+              {
+                label: 'ServiceStack.Text',
+                to: 'https://docs.servicestack.net/text',
+              },
+              {
+                label: 'ServiceStack.Aws',
+                to: 'https://docs.servicestack.net/aws',
+              },
+              {
+                label: 'Live Demos',
+                to: 'https://github.com/NetCoreApps/LiveDemos',
+              },
+              {
+                label: 'Customer Forums',
+                to: 'https://forums.servicestack.net/',
+              },
+              {
+                label: 'Blog',
+                to: 'https://servicestack.net/blog',
+              }
+            ],
+          },
+          {
+            title: 'Learn',
+            items: [
+              {
+                label: 'Why ServiceStack',
+                to: 'https://docs.servicestack.net/why-servicestack',
+              },
+              {
+                label: 'Architecture',
+                to: 'https://docs.servicestack.net/architecture-overview',
+              },
+              {
+                label: 'Explore ServiceStack',
+                href: 'https://docs.servicestack.net/explore-servicestack',
+              },
+              {
+                label: 'API First Development',
+                href: 'https://docs.servicestack.net/api-first-development',
+              },
+              {
+                label: 'The Simple POCO Life',
+                href: 'https://docs.servicestack.net/service-complexity-and-dto-roles',
+              },
+              {
+                label: 'Training Services',
+                href: 'https://servicestack.net/training',
+              }
+            ],
+          },
+          {
+            title: 'About',
+            // Please don't remove the privacy and terms, it's a legal
+            // requirement.
+            items: [
+              {
+                label: 'Support',
+                href: 'https://servicestack.net/support',
+              },
+              {
+                label: 'What\'s New',
+                href: 'https://servicestack.net/whatsnew',
+              },
+              {
+                label: 'Contact Us',
+                href: 'https://servicestack.net/#contact',
+              },
+              {
+                label: 'Privacy',
+                href: 'https://servicestack.net/privacy',
+              },
+              {
+                label: 'Terms',
+                href: 'https://servicestack.net/terms',
+              }
             ],
           },
         ],
+        logo: {
+          alt: 'ServiceStack Logo',
+          src: '/img/servicestack.svg',
+          href: 'https://servicestack.net',
+        },
+        copyright: `Copyright © ${new Date().getFullYear()} ServiceStack, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -94,6 +226,7 @@ const config = {
         contextualSearch: false,
       }
     })
+
 };
 
 module.exports = config;
