@@ -26,8 +26,8 @@
 }
 .breadcrumbs__link svg {
   color: rgb(156 163 175);
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 1.7rem;
+  width: 1.7rem;
 }
 .breadcrumbs__item:not(:last-child):after {
   color: rgb(156 163 175) !important;
@@ -145,11 +145,12 @@ h6 strong {
 .menu, .navbar-sidebar {
   font-size: 15px;
 }
-p code {
+p code, td code {
   color: #3b82f6;
   background-color: #eff6ff;
   padding: 0.25em 0.5rem;
   border-radius: 0.25rem;
+  border-width: 0;
 }
 .theme-code-block div:first-child {
   background: rgb(249 250 251);
