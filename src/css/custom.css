@@ -21,6 +21,9 @@
   --ifm-breadcrumb-item-background-active: none;
   --ifm-breadcrumb-separator:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 256 256"><polygon fill="%239CA3AF" points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128"/></svg>');
 }
+.breadcrumbs__link {
+  font-size: 1.2em;
+}
 .breadcrumbs__link svg {
   color: rgb(156 163 175);
   height: 1.6rem;
@@ -31,13 +34,11 @@
   height: .8em;
   width: .8em;
   opacity: 1;
-  vertical-align: text-bottom;
 }
 .breadcrumbs__item {
   vertical-align: middle;
 }
 .breadcrumbs__item span {
-  font-size: 1.2em;
   font-weight: 600;
 }
 .breadcrumbs__item--active .breadcrumbs__link {
@@ -149,4 +150,7 @@ p code {
   background-color: #eff6ff;
   padding: 0.25em 0.5rem;
   border-radius: 0.25rem;
+}
+.theme-code-block div:first-child {
+  background: rgb(249 250 251);
 }
