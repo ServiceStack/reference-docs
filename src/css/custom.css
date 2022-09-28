@@ -47,7 +47,8 @@
 }
 
 .symbol-property {
-  color: gray;
+  color: rgb(156 163 175);
+  padding-top: 3px;
 }
 
 .symbol-method {
@@ -55,11 +56,13 @@
 }
 
 .symbol-class {
-  color: darkgoldenrod;
+  color: rgb(99 102 241);
 }
 
 .github-icon {
-  color: black;
+  color: #6b7280;
+  margin-right: .25em;
+  vertical-align: bottom;
 }
 
 .docusaurus-highlight-code-line {
@@ -129,7 +132,7 @@ html[data-theme='dark'] ul>li {
 article p img {
   margin-top: 0.5em;
 }
-h6, h6 strong {
+h5, h6, h6 strong {
   font-size: 1em;
   font-weight: 600;
 }
@@ -138,4 +141,10 @@ h6 strong {
 }
 .menu, .navbar-sidebar {
   font-size: 15px;
+}
+p code {
+  color: #3b82f6;
+  background-color: #eff6ff;
+  padding: 0.25em 0.5rem;
+  border-radius: 0.25rem;
 }
