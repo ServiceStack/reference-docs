@@ -246,8 +246,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
         str.AppendLine($"* {items.Link(@namespace.Uid, indexLink: true).HtmlEscape()}");
     str.AppendLine();
     str.AppendLine("---");
-    str.AppendLine(
-        $"Generated using [DocFxMarkdownGen](https://github.com/Jan0660/DocFxMarkdownGen) v{versionString}.");
+    str.AppendLine();
     await File.WriteAllTextAsync(Path.Join(config.OutputPath, $"index.md"), str.ToString());
 }
 logger.LogInformation($"Markdown finished in {stopwatch.ElapsedMilliseconds}ms.");

@@ -46,13 +46,6 @@ const config = {
           alt: 'ServiceStack Reference',
           src: 'img/servicestack.svg',
         },
-        items: [
-          {
-            href: "/api",
-            label: "API",
-            position: "left",
-          },
-        ],
       },
       footer: {
         style: 'light',
