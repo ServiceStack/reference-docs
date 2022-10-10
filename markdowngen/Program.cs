@@ -261,16 +261,16 @@ if (config.OutputStats)
     var enums = items.Values.Count(x => x.Type == "Enum");
 
     var classesByNamespace = items.Values.Where(x => x.Type == "Class")
-        .GroupBy(y => y.Parent);
+        .GroupBy(y => y.Assemblies[0]);
     
     var structsByNamespace = items.Values.Where(x => x.Type == "Struct")
-        .GroupBy(y => y.Parent);
+        .GroupBy(y => y.Assemblies[0]);
     
     var enumsByNamespace = items.Values.Where(x => x.Type == "Enum")
-        .GroupBy(y => y.Parent);
+        .GroupBy(y => y.Assemblies[0]);
     
     var interfacesByNamespace = items.Values.Where(x => x.Type == "Interface")
-        .GroupBy(y => y.Parent);
+        .GroupBy(y => y.Assemblies[0]);
 
     var results = new CodeBaseStats
     {
@@ -279,10 +279,10 @@ if (config.OutputStats)
         Structs = structs,
         Interfaces = interfaces,
         Enums = enums,
-        ClassesByNamespace = classesByNamespace.ToDictionary(x => x.Key, y => y.Count()),
-        StructsByNamespace = structsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
-        EnumsByNamespace = enumsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
-        InterfacesByNamespace = interfacesByNamespace.ToDictionary(x => x.Key, y => y.Count())
+        ClassesByAssembly = classesByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        StructsByAssembly = structsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        EnumsByAssembly = enumsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        InterfacesByAssembly = interfacesByNamespace.ToDictionary(x => x.Key, y => y.Count())
     };
     
     Console.WriteLine("Stats: ");

@@ -103,8 +103,8 @@ public class CodeBaseStats
     public int Structs { get; set; }
     public int Enums { get; set; }
     
-    public Dictionary<string,int> ClassesByNamespace { get; set; }
-    public Dictionary<string,int> InterfacesByNamespace { get; set; }
-    public Dictionary<string,int> StructsByNamespace { get; set; }
-    public Dictionary<string,int> EnumsByNamespace { get; set; }
+    public Dictionary<string,int> ClassesByAssembly { get; set; }
+    public Dictionary<string,int> InterfacesByAssembly { get; set; }
+    public Dictionary<string,int> StructsByAssembly { get; set; }
+    public Dictionary<string,int> EnumsByAssembly { get; set; }
 }
