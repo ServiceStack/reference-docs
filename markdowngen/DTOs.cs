@@ -92,4 +92,19 @@ public class Config
     public string OutputPath { get; set; }
     public string IndexSlug { get; set; }
     public bool UseIconify { get; set; }
+    public bool OutputStats { get; set; }
+}
+
+public class CodeBaseStats
+{
+    public int Namespaces { get; set; }
+    public int Classes { get; set; }
+    public int Interfaces { get; set; }
+    public int Structs { get; set; }
+    public int Enums { get; set; }
+    
+    public Dictionary<string,int> ClassesByNamespace { get; set; }
+    public Dictionary<string,int> InterfacesByNamespace { get; set; }
+    public Dictionary<string,int> StructsByNamespace { get; set; }
+    public Dictionary<string,int> EnumsByNamespace { get; set; }
 }

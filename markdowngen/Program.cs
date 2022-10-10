@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Text;
 using DocFxMarkdownGen;
 using Microsoft.Extensions.Logging;
+using ServiceStack;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -250,3 +251,41 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
     await File.WriteAllTextAsync(Path.Join(config.OutputPath, $"index.md"), str.ToString());
 }
 logger.LogInformation($"Markdown finished in {stopwatch.ElapsedMilliseconds}ms.");
+
+if (config.OutputStats)
+{
+    var namespaces = items.Values.Count(x => x.Type == "Namespace");
+    var classes = items.Values.Count(x => x.Type == "Class");
+    var structs = items.Values.Count(x => x.Type == "Struct");
+    var interfaces = items.Values.Count(x => x.Type == "Interface");
+    var enums = items.Values.Count(x => x.Type == "Enum");
+
+    var classesByNamespace = items.Values.Where(x => x.Type == "Class")
+        .GroupBy(y => y.Parent);
+    
+    var structsByNamespace = items.Values.Where(x => x.Type == "Struct")
+        .GroupBy(y => y.Parent);
+    
+    var enumsByNamespace = items.Values.Where(x => x.Type == "Enum")
+        .GroupBy(y => y.Parent);
+    
+    var interfacesByNamespace = items.Values.Where(x => x.Type == "Interface")
+        .GroupBy(y => y.Parent);
+
+    var results = new CodeBaseStats
+    {
+        Namespaces = namespaces,
+        Classes = classes,
+        Structs = structs,
+        Interfaces = interfaces,
+        Enums = enums,
+        ClassesByNamespace = classesByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        StructsByNamespace = structsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        EnumsByNamespace = enumsByNamespace.ToDictionary(x => x.Key, y => y.Count()),
+        InterfacesByNamespace = interfacesByNamespace.ToDictionary(x => x.Key, y => y.Count())
+    };
+    
+    Console.WriteLine("Stats: ");
+    Console.WriteLine(results.ToJson());
+    File.WriteAllText("./stats.json", results.ToJson());
+}
