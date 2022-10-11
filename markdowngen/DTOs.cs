@@ -39,6 +39,7 @@ public class Item
     public string[]? InheritedMembers { get; set; }
 
     public string[] ExtensionMethods { get; set; }
+    public string Remarks { get; set; }
     // modifiers.csharp
     // modifiers.vb
 }

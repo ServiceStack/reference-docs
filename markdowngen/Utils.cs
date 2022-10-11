@@ -80,6 +80,7 @@ public static class MarkdownWritingExtensions
 
     static Regex codeRegex = new("<code>(.+?)</code>", RegexOptions.Compiled);
     static Regex linkRegex = new("<a href=\"(.+?)\">(.+?)</a>", RegexOptions.Compiled);
+    static Regex imgRegex = new ("<img src=[\"'](.+?)[\"'].*?>", RegexOptions.Compiled);
 
     private static List<string> csharpKeywords = new()
     {
@@ -176,7 +177,7 @@ public static class MarkdownWritingExtensions
         return result;
     }
     
-    public static string? GetSummary(this Dictionary<string, Item> items, string? summary)
+    public static string? GetSummary(this Item item, Dictionary<string, Item> items, string? summary)
     {
         if (summary == null)
             return null;
@@ -188,6 +189,9 @@ public static class MarkdownWritingExtensions
         summary = langwordXrefRegex.Replace(summary, match => $"`{match.Groups[1].Value}`");
         summary = codeRegex.Replace(summary, match => $"`{match.Groups[1].Value}`");
         summary = linkRegex.Replace(summary, match => $"[{match.Groups[2].Value}]({match.Groups[1].Value})");
+        summary = imgRegex.Replace(summary, match => $"![]({match.Groups[1].Value})");
+
+        summary += $"\n{item.Remarks}\n";
         
         return summary.HtmlEscape();
     }
@@ -213,7 +217,7 @@ public static class MarkdownWritingExtensions
             str.AppendLine(method.WithIconifyHeading());
         else
             str.AppendLine($"### {method.Name.HtmlEscape()}");
-        str.AppendLine(items.GetSummary(method.Summary)?.Trim());
+        str.AppendLine(method.GetSummary(items,method.Summary)?.Trim());
         Declaration(str, method);
         if (!string.IsNullOrWhiteSpace(method.Syntax.Return?.Type))
         {
@@ -224,7 +228,7 @@ public static class MarkdownWritingExtensions
             if (string.IsNullOrWhiteSpace(method.Syntax.Return?.Description))
                 str.AppendLine();
             else
-                str.Append(": " + items.GetSummary(method.Syntax.Return.Description));
+                str.Append(": " + method.GetSummary(items, method.Syntax.Return.Description));
         }
 
         if ((method.Syntax?.Parameters?.Length ?? 0) != 0)
@@ -238,7 +242,7 @@ public static class MarkdownWritingExtensions
                 str.AppendLine("|:--- |:--- |:--- |");
                 foreach (var parameter in method.Syntax.Parameters)
                     str.AppendLine(
-                        $"| {items.Link(parameter.Type)} | *{parameter.Id}* | {items.GetSummary(parameter.Description)} |");
+                        $"| {items.Link(parameter.Type)} | *{parameter.Id}* | {method.GetSummary(items,parameter.Description)} |");
             }
             else
             {

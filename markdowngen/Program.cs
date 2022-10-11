@@ -78,7 +78,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
         str.AppendLine("sidebar_label: " + item.Name);
         if (item.Summary != null)
             // todo: run a regex replace to get rid of hyperlinks and inline code blocks?
-            str.AppendLine($"description: \"{items.GetSummary(item.Summary)?.Trim().Replace("\"", "\\\"")}\"");
+            str.AppendLine($"description: \"{item.GetSummary(items,item.Summary)?.Trim().Replace("\"", "\\\"")}\"");
         str.AppendLine("---");
         str.AppendLine();
         if (config.UseIconify)
@@ -88,7 +88,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
         }
         
         str.AppendLine(item.WithIconifyHeading("# "));
-        str.AppendLine(items.GetSummary(item.Summary)?.Trim());
+        str.AppendLine(item.GetSummary(items,item.Summary)?.Trim());
         str.AppendLine();
         str.AppendLine($"###### **Assembly**: {item.Assemblies[0]}.dll");
         MarkdownWritingExtensions.Declaration(str, item);
@@ -103,7 +103,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
                     str.AppendLine(property.WithIconifyHeading());
                 else
                     str.AppendLine($"### {property.Name}");
-                str.AppendLine(items.GetSummary(property.Summary)?.Trim());
+                str.AppendLine(item.GetSummary(items,property.Summary)?.Trim());
                 MarkdownWritingExtensions.Declaration(str, property);
             }
         }
@@ -119,7 +119,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
                     str.AppendLine(property.WithIconifyHeading());
                 else
                     str.AppendLine($"### {property.Name}");
-                str.AppendLine(items.GetSummary(property.Summary)?.Trim());
+                str.AppendLine(item.GetSummary(items,property.Summary)?.Trim());
                 MarkdownWritingExtensions.Declaration(str, property);
             }
         }
@@ -133,7 +133,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
             foreach (var field in fields)
             {
                 str.AppendLine(config.UseIconify ? field.WithIconifyHeading() : $"### {field.Name}");
-                str.AppendLine(items.GetSummary(field.Summary)?.Trim());
+                str.AppendLine(item.GetSummary(items,field.Summary)?.Trim());
                 MarkdownWritingExtensions.Declaration(str, field);
             }
         }
@@ -168,7 +168,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
             foreach (var @event in events)
             {
                 str.AppendLine($"### {@event.Name.HtmlEscape()}");
-                str.AppendLine(items.GetSummary(@event.Summary)?.Trim());
+                str.AppendLine(item.GetSummary(items,@event.Summary)?.Trim());
                 MarkdownWritingExtensions.Declaration(str, @event);
                 str.AppendLine("##### Event Type");
                 if (@event.Syntax.Return.Description == null)
@@ -219,7 +219,7 @@ await Parallel.ForEachAsync(items, async (kvp, _) =>
                 foreach (var item1 in @where.OrderBy(i => i.Name))
                 {
                     str.AppendLine($"### {items.Link(item1.Uid, config, true)}");
-                    str.AppendLine(items.GetSummary(item1.Summary)?.Trim());
+                    str.AppendLine(item.GetSummary(items,item1.Summary)?.Trim());
                 }
             }
         }
