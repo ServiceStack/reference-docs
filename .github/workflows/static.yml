@@ -3,8 +3,8 @@ name: Generate and Deploy
 
 on:
   # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+#   push:
+#     branches: ["main"]
 
   repository_dispatch:
     types: [ source_updated ]
