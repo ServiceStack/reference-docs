@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   servicestack-reference-search:
-    image: ghcr.io/servicestack/referece-search:latest
+    image: ghcr.io/servicestack/reference-search:latest
     network_mode: bridge
     ports:
       - "8108"
